@@ -73,7 +73,7 @@ Section: base\n\
 Priority: optional\n\
 Architecture: amd64\n\
 Depends: libgif7, libotf0, libgccjit0, libm17n-0, libgtk-3-0, librsvg2-2, libtiff5, libjansson4, libacl1, libjpeg62-turbo, libdbus-1-3\n\
-Maintainer: andrea.vettorello@gmail.com\n\
+Maintainer: Andrea Vettorello <andrea.vettorello@gmail.com>\n\
 Description: Emacs with native compilation and pure GTK\n\
     --with-native-compilation\n\
     --with-pgtk\n\
