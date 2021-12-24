@@ -38,7 +38,7 @@ RUN sed -i 's/# deb-src/deb-src/' /etc/apt/sources.list &&\
 
 # Clone emacs
 RUN update-ca-certificates \
-    && git clone --depth 1 https://github.com/emacs-mirror/emacs.git -b feature/pgtk \
+    && git clone --depth 1 https://github.com/emacs-mirror/emacs.git \
     && mv emacs/* .
 
 # Build
