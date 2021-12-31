@@ -3,7 +3,10 @@ WORKDIR /opt
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN sed -i 's/# deb-src/deb-src/' /etc/apt/sources.list &&\
-    apt-get update && apt-get install --yes --no-install-recommends  \
+    apt-get update &&\
+    apt-get install --yes --no-install-recommends auto-apt-proxy &&\
+    echo "192.168.0.100 apt-proxy" >> /etc/hosts &&\
+    apt-get install --yes --no-install-recommends  \
     apt-transport-https\
     autoconf \
     build-essential \
@@ -17,6 +20,7 @@ RUN sed -i 's/# deb-src/deb-src/' /etc/apt/sources.list &&\
     libgnutls28-dev \
     libgpm-dev \
     libgtk-3-dev \
+    libwebkit2gtk-4.0-dev \
     libjansson-dev \
     libjbig-dev \
     libjpeg-dev \
@@ -47,6 +51,7 @@ RUN ./autogen.sh && ./configure \
     --prefix "/usr" \
     --with-native-compilation \
     --with-pgtk \
+    --with-xwidgets \
     --with-json \
     --with-gnutls \
     --with-dbus \
@@ -77,6 +82,7 @@ Maintainer: Andrea Vettorello <andrea.vettorello@gmail.com>\n\
 Description: Emacs with native compilation and pure GTK\n\
     --with-native-compilation\n\
     --with-pgtk\n\
+    --with-xwidgets\n\
     --with-json\n\
     --with-gnutls\n\
     --with-dbus\n\
